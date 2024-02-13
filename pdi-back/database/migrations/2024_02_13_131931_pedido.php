@@ -14,17 +14,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pedido', function (Blueprint $table) {
-            $table->string('codigo_cliente', 64)
+            $table->string('codigo_cliente', 64)->primary()
             ->foreignId()
             ->constrained('cliente', 'codigo_cliente')
             ->onUpdate('cascade')
             ->onDelete('restrict');
-            $table->string('codigo_produto', 64)
+            $table->string('codigo_produto', 64)->primary()
             ->foreignId()
             ->constrained('produto', 'codigo_produto')
             ->onUpdate('cascade')
             ->onDelete('restrict');
-            $table->string('codigo_tipo_produto', 32)
+            $table->string('codigo_tipo_produto', 32)->primary()
             ->foreignId()
             ->constrained('tipo_produto', 'codigo_tipo_produto')
             ->onUpdate('cascade')
