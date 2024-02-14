@@ -23,7 +23,7 @@ De acordo com a atual documentação do VueJS, foram usados componentes SFC, que
 
 ## Backend  
 
-Foi usado o migrations para a criação das tabelas do banco de dados. A classe DatabaseSeeder foi estruturados parcialmente. Não optei por criar ids numéricos incrementais nas tabelas - procurei definir chaves candidatas que garantissem uma integridade ao banco. Assim, a DatabaseSeeder contém, através de Factories (como indicado no doc do Laravel sendo o mais apropriado), dados de duas tabelas, cliente e codigo_produto, mas falta terminar a criação com relationamento entre as tabelas que contêm FK. Os controllers, resources, models foram criados pelo Artisan, mas não estão completos. Dois endpoints da api foram testados e retornarm os valores inseridos via seed:  
+Foi usado o migrations para a criação das tabelas do banco de dados. A classe DatabaseSeeder foi estruturada parcialmente. Não optei por criar ids numéricos incrementais nas tabelas - procurei definir chaves candidatas que garantam uma integridade ao banco. Assim, a DatabaseSeeder contém, através de Factories (como indicado no doc do Laravel sendo o mais apropriado), dados de duas tabelas, cliente e codigo_produto, mas falta terminar a criação com relationamento entre as tabelas que contêm FK. Os controllers, resources, models foram criados pelo Artisan, alterados, mas ainda não estão completos. Dois endpoints da api foram testados e retornarm os valores inseridos via seed, ou seja, do CRUDL, tem-se o L de uma tabela (cliente):  
 
  - curl http://127.0.0.1:8000/api/cliente
  - curl http://127.0.0.1:8000/api/users
