@@ -25,6 +25,7 @@ return new class extends Migration
             $table->char('cep', 9)->nullable();
             $table->datetime('data_cadastro')->useCurrent();
             $table->softDeletesTz('deleted_at');
+            $table->timestamps();
         });
     }
 
@@ -33,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('cliente');
     }
 };

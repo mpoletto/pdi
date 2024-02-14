@@ -14,9 +14,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tipo_produto', function (Blueprint $table) {
-            $table->string('codigo_tipo_produto', 32)->primary();
+            $table->string('codigo_tipo_produto', 64)->primary();
             $table->string('tipo', 32);
             $table->softDeletesTz('deleted_at');
+            $table->timestamps();
         });
     }
 
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('tipo_produto');
     }
 };

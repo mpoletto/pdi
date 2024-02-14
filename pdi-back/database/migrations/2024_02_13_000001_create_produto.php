@@ -14,14 +14,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('produto', function (Blueprint $table) {
-            $table->string('codigo_produto', 64)->primary();
-            $table->string('codigo_tipo_produto', 32)->primary();
+            $table->string('codigo_produto', 64);
+            $table->string('codigo_tipo_produto', 64);
             $table->string('nome', 32);
             $table->decimal('preco', 6, 2, true);
-            $table->blob('foto')->nullable();
+            $table->binary('foto')->nullable();
             $table->softDeletesTz('deleted_at');
-            $table->foreignId('codigo_tipo_produto')
-            ->constrained('tipo_produto', 'codigo_tipo_produto')
+            $table->timestamps();
+
+            $table->primary(['codigo_produto', 'codigo_tipo_produto']);
+
+            $table->foreign('codigo_tipo_produto')
+            ->references('codigo_tipo_produto')->on('tipo_produto')
             ->onUpdate('cascade')
             ->onDelete('restrict');
         });
@@ -32,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('produto');
     }
 };
