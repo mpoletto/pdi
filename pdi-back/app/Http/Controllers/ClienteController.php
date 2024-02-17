@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TipoProduto;
-use App\Http\Resources\TipoProdutoResource;
+use App\Http\Requests\StoreClienteRequest;
 use Illuminate\Http\Request;
+use App\Http\Requests\UpdateClienteRequest;
+use App\Http\Resources\ClienteResource;
+use App\Models\Cliente;
 
-class TipoProdutoController extends Controller
+class ClienteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -30,14 +32,14 @@ class TipoProdutoController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $cliente = TipoProduto::create($data);
-        return new TipoProdutoResource($cliente);
+        $cliente = Cliente::create($data);
+        return new ClienteResource($cliente);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(TipoProduto $tipoProduto)
+    public function show(Cliente $cliente)
     {
         //
     }
@@ -45,7 +47,7 @@ class TipoProdutoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(TipoProduto $tipoProduto)
+    public function edit(Cliente $cliente)
     {
         //
     }
@@ -53,7 +55,7 @@ class TipoProdutoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, TipoProduto $tipoProduto)
+    public function update(UpdateClienteRequest $request, Cliente $cliente)
     {
         //
     }
@@ -61,7 +63,7 @@ class TipoProdutoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(TipoProduto $tipoProduto)
+    public function destroy(Cliente $cliente)
     {
         //
     }

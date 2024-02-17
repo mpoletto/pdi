@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\TipoProdutoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Resources\UserCollection;
@@ -29,3 +31,7 @@ Route::get('/users', function () {
 Route::get('/cliente', function () {
     return new ClienteCollection(Cliente::all());
 });
+
+Route::post('/cliente', [ClienteController::class, 'store']);
+
+Route::post('/tipo-produto', [TipoProdutoController::class, 'store']);

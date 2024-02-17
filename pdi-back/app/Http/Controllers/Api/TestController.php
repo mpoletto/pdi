@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use App\Models\TipoProduto;
-use App\Http\Resources\TipoProdutoResource;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class TipoProdutoController extends Controller
+class TestController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -29,15 +28,13 @@ class TipoProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        $cliente = TipoProduto::create($data);
-        return new TipoProdutoResource($cliente);
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(TipoProduto $tipoProduto)
+    public function show(string $id)
     {
         //
     }
@@ -45,7 +42,7 @@ class TipoProdutoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(TipoProduto $tipoProduto)
+    public function edit(string $id)
     {
         //
     }
@@ -53,7 +50,7 @@ class TipoProdutoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, TipoProduto $tipoProduto)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -61,7 +58,7 @@ class TipoProdutoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(TipoProduto $tipoProduto)
+    public function destroy(string $id)
     {
         //
     }

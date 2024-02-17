@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Produto extends Model
 {
@@ -17,8 +18,8 @@ class Produto extends Model
     protected $table = 'produto';
 
     /**
-     * The attributes that are mass assignable.
-     * 
+     * The attributes that are ($fillable) mass assignable.
+     * https://laravel.com/docs/5.2/eloquent#mass-assignment
      * @var array<int, string>
      */
     protected $fillable = [
@@ -30,8 +31,17 @@ class Produto extends Model
         'deleted_at',
     ];
 
-    // public function create(String $codigo_tipo_produto) 
-    // {
-    //     return 
-    // }
+    /**
+     * The attributes that aren't ($guard) mass assignable.
+     * https://laravel.com/docs/5.2/eloquent#mass-assignment
+     * @var array<int, string>
+     */
+    protected $guard = [];
+
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
 }

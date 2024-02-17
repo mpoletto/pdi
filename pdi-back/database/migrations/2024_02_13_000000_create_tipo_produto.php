@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('tipo_produto', function (Blueprint $table) {
             $table->string('codigo_tipo_produto', 64)->primary();
-            $table->string('tipo', 32);
+            $table->string('tipo', 64);
             $table->softDeletesTz('deleted_at');
             $table->timestamps();
         });

@@ -23,11 +23,11 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\TipoProduto::factory(10)->create();
 
-        \App\Models\Produto::factory(10)->create('\App\Models\TipoProduto');
+        // \App\Models\Produto::factory(10)->create('\App\Models\TipoProduto');
 
-        // factory(\App\Models\Produto::class, 10)->create()->each(function($u) {
-        //     $u->posts()->save(factory(App\Post::class)->make());
-        // });
+        \App\Models\Produto::factory(10)->create()->each(function($u) {
+            $u->codigo_tipo_produto()->save(\App\Models\TipoProduto::factory(10)->make());
+        });
 
 
 

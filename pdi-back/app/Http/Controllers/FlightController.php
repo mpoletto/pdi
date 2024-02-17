@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TipoProduto;
-use App\Http\Resources\TipoProdutoResource;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreFlightRequest;
+use App\Http\Requests\UpdateFlightRequest;
+use App\Models\Flight;
 
-class TipoProdutoController extends Controller
+class FlightController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,17 +27,15 @@ class TipoProdutoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreFlightRequest $request)
     {
-        $data = $request->all();
-        $cliente = TipoProduto::create($data);
-        return new TipoProdutoResource($cliente);
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(TipoProduto $tipoProduto)
+    public function show(Flight $flight)
     {
         //
     }
@@ -45,7 +43,7 @@ class TipoProdutoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(TipoProduto $tipoProduto)
+    public function edit(Flight $flight)
     {
         //
     }
@@ -53,7 +51,7 @@ class TipoProdutoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, TipoProduto $tipoProduto)
+    public function update(UpdateFlightRequest $request, Flight $flight)
     {
         //
     }
@@ -61,7 +59,7 @@ class TipoProdutoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(TipoProduto $tipoProduto)
+    public function destroy(Flight $flight)
     {
         //
     }
