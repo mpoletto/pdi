@@ -21,12 +21,14 @@ O que posso deixar como observação é que nunca trabalhei com Laravel nem VueJ
 VueJS: o ideal é usar yarn, pois podem ocorrer conflitos entre o Vueform com outra biblioteca.
 De acordo com a atual documentação do VueJS, foram usados componentes SFC, que já implementam o `<script setup>`, elimando a necessidade de usar `setup()`, `data()` e `return` para que o componente seja lido adequadamente pela aplicação.  
 
-## Backend  
+## Backend  (updated)
 
-Foi usado o migrations para a criação das tabelas do banco de dados. A classe DatabaseSeeder foi estruturada parcialmente. Não optei por criar ids numéricos incrementais nas tabelas - procurei definir chaves candidatas que garantam uma integridade ao banco. Assim, a DatabaseSeeder contém, através de Factories (como indicado no doc do Laravel sendo o mais apropriado), dados de duas tabelas, cliente e codigo_produto, mas falta terminar a criação com relationamento entre as tabelas que contêm FK. Os controllers, resources, models foram criados pelo Artisan, alterados, mas ainda não estão completos. Dois endpoints da api foram testados e retornarm os valores inseridos via seed, ou seja, do CRUDL, tem-se o L de uma tabela (cliente):  
+Foi usado o migrations para a criação das tabelas do banco de dados. A classe DatabaseSeeder foi estruturada parcialmente. Não optei por criar ids numéricos incrementais nas tabelas - procurei definir chaves candidatas que garantam uma integridade ao banco. Assim, a DatabaseSeeder contém, através de Factories (como indicado no doc do Laravel sendo o mais apropriado), dados de duas tabelas, cliente e codigo_produto, mas falta terminar a criação com relationamento entre as tabelas que contêm FK. Os controllers, resources, models foram criados pelo Artisan, alterados, mas ainda não estão completos. ~~Dois~~ Quatro endpoints da api foram testados ~~e  retornarm os valores inseridos via seed, ou seja, do CRUDL, tem-se o L de uma tabela (cliente)~~:  
 
  - curl http://127.0.0.1:8000/api/cliente
  - curl http://127.0.0.1:8000/api/users
+ - curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X POST -d '{"codigo_tipo_produto":"08eabbef-4830-3324-b7c3-bfce9f24ZZYY", "tipo":"Tipo de teste 1"}' http://127.0.0.1:8000/api/tipo-produto
+ - curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X POST -d '{"codigo_cliente":"08eabbef-4830-3324-b7c3-bfce9f24acYY","nome":"Ingrid Example","email":"ingrid@example.net","telefone":null,"data_nascimento":"2024-02-16","endereco":null,"complemento":null,"bairro":null,"cep":null,"deleted_at":null}' http://127.0.0.1:8000/api/cliente
 
 ## Estrutura  
 
