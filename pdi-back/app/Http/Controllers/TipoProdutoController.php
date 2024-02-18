@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\TipoProduto;
 use App\Http\Resources\TipoProdutoResource;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreTipoProdutoRequest;
 
 class TipoProdutoController extends Controller
 {
@@ -27,7 +27,7 @@ class TipoProdutoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreTipoProdutoRequest $request)
     {
         $data = $request->all();
         $cliente = TipoProduto::create($data);

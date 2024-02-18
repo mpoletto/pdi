@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreClienteRequest extends FormRequest
+class StorePedidoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -22,9 +22,7 @@ class StoreClienteRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'codigo_cliente' => 'required|min:26|max:64',
-            'nome' => 'required|min:3|max:96',
-            'email' => 'required|email|max:255|unique:cliente',
+            //
         ];
     }
 }

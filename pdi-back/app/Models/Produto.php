@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Produto extends Model
 {
@@ -44,4 +45,12 @@ class Produto extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    /**
+     * Get the tipo_produto from produto
+     */
+    public function tipo_produto(): HasMany
+    {
+        return $this->hasMany(TipoProduto::class, 'foreign_key');
+    }
 }

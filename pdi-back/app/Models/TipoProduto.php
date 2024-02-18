@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class TipoProduto extends Model
 {
@@ -26,4 +27,12 @@ class TipoProduto extends Model
         'tipo',
         'deleted_at',
     ];
+
+    /**
+     * Get the produto that owns the tipo_produto
+     */
+    public function produto(): BelongsTo
+    {
+        return $this->belongsTo(Produto::class, 'foreign_key');
+    }
 }

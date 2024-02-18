@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\TipoProdutoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -8,6 +9,7 @@ use App\Http\Resources\UserCollection;
 use App\Models\User;
 use App\Http\Resources\ClienteCollection;
 use App\Models\Cliente;
+use App\Http\Resources\ProdutoResource;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,4 +36,10 @@ Route::get('/cliente', function () {
 
 Route::post('/cliente', [ClienteController::class, 'store']);
 
+Route::post('/produto', [ProdutoController::class, 'store']);
+
 Route::post('/tipo-produto', [TipoProdutoController::class, 'store']);
+
+// Route::get('/tp', function() {
+//     return new Produto
+// });

@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produto;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreProdutoRequest;
+use App\Http\Resources\ProdutoResource;
 
 class ProdutoController extends Controller
 {
@@ -12,7 +13,12 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        //
+        $tipo_produto = Produto::find(1)->tipo_produto;
+        $array_tp = [];
+        foreach ($tipo_produto as $tp) {
+            $array_tp[] = $tp;
+        }
+        return $array_tp;
     }
 
     /**
@@ -26,9 +32,11 @@ class ProdutoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreProdutoRequest $request)
     {
-        //
+        $data = $request->all();
+        $produto = Produto::create($data);
+        return new ProdutoResource($produto);
     }
 
     /**

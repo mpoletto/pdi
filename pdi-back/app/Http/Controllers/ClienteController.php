@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreClienteRequest;
-use Illuminate\Http\Request;
 use App\Http\Requests\UpdateClienteRequest;
 use App\Http\Resources\ClienteResource;
 use App\Models\Cliente;
@@ -29,7 +28,7 @@ class ClienteController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreClienteRequest $request)
     {
         $data = $request->all();
         $cliente = Cliente::create($data);
