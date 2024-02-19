@@ -22,7 +22,6 @@ class StoreClienteRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'codigo_cliente' => 'required|min:26|max:64',
             'nome' => 'required|min:3|max:96',
             'email' => 'required|email|max:255|unique:cliente',
         ];

@@ -24,7 +24,7 @@ class Pedido extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'codigo_cliente',
+        'id_cliente',
         'codigo_produto',
         'codigo_tipo_produto',
         'user_session_id',

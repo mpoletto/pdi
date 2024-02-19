@@ -23,7 +23,6 @@ class Cliente extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'codigo_cliente',
         'nome', 
         'email', 
         'telefone', 
@@ -37,6 +36,6 @@ class Cliente extends Model
 
     public function getForFactory()
     {
-        return DB::table($this->table)->select('codigo_cliente')->offset(1)->limit(1)->get();
+        return DB::table($this->table)->select('id')->offset(1)->limit(1)->get();
     }
 }

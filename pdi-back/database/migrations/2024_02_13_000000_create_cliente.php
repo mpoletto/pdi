@@ -6,15 +6,13 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    public $incrementing = false;
-
     /**
      * Run the migrations.
      */
     public function up(): void
     {
         Schema::create('cliente', function (Blueprint $table) {
-            $table->string('codigo_cliente', 64)->primary();
+            $table->id();
             $table->string('nome', 96);
             $table->string('email')->unique();
             $table->string('telefone', 32)->nullable();

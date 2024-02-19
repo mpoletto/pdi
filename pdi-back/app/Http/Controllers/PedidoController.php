@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Pedido;
 use Illuminate\Http\Request;
+use App\Http\Requests\StorePedidoRequest;
+use App\Http\Resources\PedidoResource;
 
 class PedidoController extends Controller
 {
@@ -26,9 +28,11 @@ class PedidoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StorePedidoRequest $request)
     {
-        //
+        $data = $request->all();
+        $pedido = Pedido::create($data);
+        return new PedidoResource($pedido);
     }
 
     /**

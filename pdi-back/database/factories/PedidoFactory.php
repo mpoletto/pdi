@@ -21,14 +21,14 @@ class PedidoFactory extends Factory
      */
     public function definition(): array
     {
-        $codigoCliente = (new Cliente)->getForFactory();
-        $objC = \json_decode($codigoCliente);
+        $idCliente = (new Cliente)->getForFactory();
+        $objC = \json_decode($idCliente);
         $codigoProduto = (new Produto)->getForFactory();
         $objP = \json_decode($codigoProduto);
         $codigoTipoProduto = (new TipoProduto)->getForFactory();
         $objTp = \json_decode($codigoTipoProduto);
         return [
-            'codigo_cliente' => $objC[0]->{'codigo_cliente'},
+            'id_cliente' => $objC[0]->{'id'},
             'codigo_produto' => $objP[0]->{'codigo_produto'},
             'codigo_tipo_produto' => $objTp[0]->{'codigo_tipo_produto'},
             'user_session_id' => fake()->uuid(),

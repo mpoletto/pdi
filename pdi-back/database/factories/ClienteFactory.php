@@ -17,7 +17,6 @@ class ClienteFactory extends Factory
     public function definition(): array
     {
         return [
-            'codigo_cliente' => fake()->uuid(),
             'nome' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'data_nascimento' => \date('Y-m-d', \time()),

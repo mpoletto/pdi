@@ -21,10 +21,14 @@ De acordo com a atual documentação do VueJS, foram usados componentes SFC, que
 
 Foi usado o migrations para a criação das tabelas do banco de dados. A classe DatabaseSeeder foi estruturada. Não optei por criar ids numéricos incrementais nas tabelas - procurei definir chaves candidatas que garantam uma integridade ao banco.  
 
-### Migrations  
+### Bootstrap, Migrations, Seed etc.  
 
  - php artisan migrate:install
  - php artisan db:seed
+ - http://127.0.0.1:8000/api/cliente (Cria um cliente com o seu e-mail. POST, ver Mockup.md.)
+ - http://127.0.0.1:8000/api/register (Cria um usuário para fazer o pedido que é restrito por auth:sanctum. POST, ver Mockup.md.)
+ - http://127.0.0.1:8000/api/login (Cria um token para fazer pedido. POST, ver Mockup.md.)
+ - http://127.0.0.1:8000/api/pedido (Cria um pedido. Necessário pegar o id_cliente, codigo_produto e codigo_tipo_produto no BD. POST, ver mockup.md.)
 
  - curl http://127.0.0.1:8000/api/cliente
  - curl http://127.0.0.1:8000/api/users

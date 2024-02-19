@@ -14,7 +14,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pedido', function (Blueprint $table) {
-            $table->string('codigo_cliente', 64);
+            $table->unsignedBigInteger('id_cliente');
             $table->string('codigo_produto', 64);
             $table->string('codigo_tipo_produto', 64);
             $table->string('user_session_id', 255);
@@ -23,10 +23,10 @@ return new class extends Migration
             $table->softDeletesTz('deleted_at');
             $table->timestamps();
 
-            $table->primary(['codigo_cliente', 'codigo_produto', 'codigo_tipo_produto', 'user_session_id']);
+            $table->primary(['id_cliente', 'codigo_produto', 'codigo_tipo_produto', 'user_session_id']);
 
-            $table->foreign('codigo_cliente')
-            ->references('codigo_cliente')->on('cliente')
+            $table->foreign('id_cliente')
+            ->references('id')->on('cliente')
             ->onUpdate('cascade')
             ->onDelete('restrict');
             $table->foreign('codigo_produto')
