@@ -23,12 +23,9 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\TipoProduto::factory(10)->create();
 
-        // \App\Models\Produto::factory(10)->create('\App\Models\TipoProduto');
+        \App\Models\Produto::factory(10)->create();
 
-        \App\Models\Produto::factory(10)->create()->each(function($u) {
-            $u->codigo_tipo_produto()->save(\App\Models\TipoProduto::factory(10)->make());
-        });
-
+        \App\Models\Pedido::factory(10)->create();
 
 
     }

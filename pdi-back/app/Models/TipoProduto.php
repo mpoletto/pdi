@@ -4,17 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Facades\DB;
 
 class TipoProduto extends Model
 {
     use HasFactory;
-
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
+    
     protected $table = 'tipo_produto';
 
     /**
@@ -28,11 +23,13 @@ class TipoProduto extends Model
         'deleted_at',
     ];
 
-    /**
-     * Get the produto that owns the tipo_produto
-     */
-    public function produto(): BelongsTo
+    public function getAll()
     {
-        return $this->belongsTo(Produto::class, 'foreign_key');
+        return DB::table($this->table)->get();
+    }
+
+    public function getForFactory()
+    {
+        return DB::table($this->table)->select('codigo_tipo_produto')->offset(1)->limit(1)->get();
     }
 }

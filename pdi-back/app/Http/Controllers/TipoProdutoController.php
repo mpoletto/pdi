@@ -13,7 +13,7 @@ class TipoProdutoController extends Controller
      */
     public function index()
     {
-        //
+        return (new TipoProduto)->getAll();
     }
 
     /**
@@ -53,7 +53,7 @@ class TipoProdutoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, TipoProduto $tipoProduto)
+    public function update(StoreTipoProdutoRequest $request, TipoProduto $tipoProduto)
     {
         //
     }

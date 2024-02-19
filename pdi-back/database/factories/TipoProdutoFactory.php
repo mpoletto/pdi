@@ -18,7 +18,7 @@ class TipoProdutoFactory extends Factory
     {
         return [
             'codigo_tipo_produto' => fake()->uuid(),
-            'tipo' => fake()->name(),
+            'tipo' => fake()->word(),
         ];
     }
 }

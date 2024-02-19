@@ -1,15 +1,17 @@
 <?php
-
-use App\Http\Controllers\ClienteController;
-use App\Http\Controllers\ProdutoController;
-use App\Http\Controllers\TipoProdutoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\TipoProdutoController;
+use App\Http\Controllers\UserController;
 use App\Http\Resources\UserCollection;
-use App\Models\User;
 use App\Http\Resources\ClienteCollection;
+use App\Http\Resources\TipoProdutoCollection;
+use App\Models\User;
 use App\Models\Cliente;
-use App\Http\Resources\ProdutoResource;
+use App\Models\TipoProduto;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +27,10 @@ use App\Http\Resources\ProdutoResource;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/user', [UserController::class, 'store']);
+
+Route::post('/login', [LoginController::class, 'authenticate']);
  
 Route::get('/users', function () {
     return new UserCollection(User::all());
@@ -40,6 +46,7 @@ Route::post('/produto', [ProdutoController::class, 'store']);
 
 Route::post('/tipo-produto', [TipoProdutoController::class, 'store']);
 
-// Route::get('/tp', function() {
-//     return new Produto
+// Route::get('/tipo-produto', function() {
+//     return new TipoProdutoCollection(TipoProduto::all());
 // });
+Route::get('/tipo-produto', [TipoProdutoController::class, 'index']);

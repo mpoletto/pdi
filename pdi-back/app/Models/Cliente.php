@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Cliente extends Model
 {
@@ -33,4 +34,9 @@ class Cliente extends Model
         'cep', 
         'deleted_at',
     ];
+
+    public function getForFactory()
+    {
+        return DB::table($this->table)->select('codigo_cliente')->offset(1)->limit(1)->get();
+    }
 }
