@@ -74,6 +74,33 @@ button:focus-visible {
   color: #9e3200;
 }
 
+.vf-static-tag-p {
+  font-size: larger;
+  font-weight: bolder;
+  font-style: italic; 
+  --vf-font-size: 1.4rem;
+  text-align: left;
+}
+.vf-input-group, .vf-input-field, .vf-toggle, .vf-toggle-on, 
+.vf-toggle-handle, .vf-toggle-container {
+  --vf-bg-btn: #9e3200;
+  --vf-border-color-input:#9e3200;
+  --vf-border-color-passive: #9e3200;
+  --vf-border-color-btn: #9e3200;
+  --vf-border-color-tag: #9e3200;
+  --vf-color-input: #9e3200;
+  --vf-ring-color: #9e3200;
+  --vf-link-color: #9e3200;
+  --vf-bg-tag: #9e3200;
+  --vf-border-color-checked: #9e3200;
+  --vf-primary: #9e3200;
+  --vf-color-success: #9e3200;
+  --vf-primary-darker: #9e3200;
+  --vf-success: #9e3200;
+  border-color: #9e3200;
+  color: #9e3200; 
+}
+
 .card {
   padding: 2em;
 }

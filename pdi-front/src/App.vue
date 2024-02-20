@@ -7,6 +7,7 @@
     <div class="form-content">
       <div>
         <form class="form">
+          <img src="./assets/images/pastel.png" class="pastel-left" width="160" height="160" alt="Pastel de Ideias" />
           <Vueform />
         </form>
       </div>
@@ -42,6 +43,13 @@ import Vueform from './components/forms/MenuForm.vue'
   background-size: 5.5rem;
   color: #9e3200;
 } 
+
+.pastel-left {
+  float: left;
+  position: absolute;
+  top:-75px;
+  left: -90px;
+}
 
 .form-header {
   background-color: #ffca00;
