@@ -13,7 +13,8 @@ const vueform = ref({
         type: 'static',
         content: 'Monte aqui o seu cardápio. O que está esperando?',
         tag: 'p',
-        columns: { container: 10 }
+        columns: { container: 10 },
+        class: 'form-header'
       },
       bebida: {
           type: 'toggle',
@@ -71,43 +72,6 @@ const vueform = ref({
         },
         // description: 'Make sure it matches your legal name',
       },
-      // birthday: {
-      //   type: 'date',
-      //   placeholder: 'Birthday',
-      //   fieldName: 'Birthday',
-      //   rules: [
-      //     'required',
-      //   ],
-      //   description: 'Your birthday is not visible others.',
-      //   displayFormat: 'MMMM Do, YYYY',
-      // },
-      // country: {
-      //   type: 'select',
-      //   search: true,
-      //   native: false,
-      //   inputType: 'search',
-      //   autocomplete: 'disabled',
-      //   placeholder: 'Country',
-      //   items: '/json/countries.json',
-      // },
-      // state: {
-      //   type: 'select',
-      //   search: true,
-      //   native: false,
-      //   inputType: 'search',
-      //   autocomplete: 'disabled',
-      //   placeholder: 'State',
-      //   items: '/json/states.json',
-      //   conditions: [
-      //     [
-      //       'country',
-      //       'in',
-      //       [
-      //         'US',
-      //       ],
-      //     ],
-      //   ],
-      // },
       descricao: {
         type: 'textarea',
         // inputType: 'tel',

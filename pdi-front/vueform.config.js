@@ -8,4 +8,5 @@ export default defineConfig({
   theme: vueform,
   locales: { en },
   locale: 'pt_BR',
+  classHelpers: true,
 })
