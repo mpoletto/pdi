@@ -5,7 +5,7 @@ O *pdi-front* e o *pdi-back*, como indicados pelos respectivos nomes, referem-se
 ## Frontend  
 
 VueJS: o ideal é usar yarn, pois podem ocorrer conflitos entre o Vueform com outra biblioteca.
-De acordo com a atual documentação do VueJS, foram usados componentes SFC, que já implementam o `<script setup>`, elimando a necessidade de usar `setup()`, `data()` e `return` para que o componente seja lido adequadamente pela aplicação.  
+De acordo com a atual documentação do VueJS, foram usados componentes SFC, que já implementam o `<script setup>`, elimando a necessidade de usar `setup()`, `data()` e `return` para que o componente seja lido adequadamente pela aplicação. Uma das imagens dos pastéis, à esquerda, foi colocado em posição absoluta. Tive que diminui-la pela metada para evitar encobrir outros elementos em caso de telas menores. Fiz alguns testes de responsividade (a olho) pelo próprio browser. A da direita, acredito que seja necessário usar o z-index, mas não foi implementada. O formulário não imprime a linha do pedido abaixo - não entendi muito bem se aquilo ficaria fixo ou dependente do cadastro. Como não tem estado, não deu tempo de descobrir essa impressão no Vue - como faria, p.ex., no JavaScript, algum "write, display" ou coisa do tipo.
 
 ## Backend
 
