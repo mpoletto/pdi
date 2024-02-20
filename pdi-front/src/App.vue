@@ -6,9 +6,11 @@
       </div>
     </header>
     <div class="form-content">
-      <form class="form">
-        <Vueform />
-    </form>
+      <div>
+        <form class="form">
+          <Vueform />
+        </form>
+      </div>
     </div>
   <!-- </div> -->
 </template>
@@ -27,14 +29,18 @@ import Vueform from './components/forms/MenuForm.vue'
   object-fit: contain;
   /* border: 3px solid blue; */
 }
-/* .form-content {
-  display: flex;
-  border-radius: 25%;
-  background-color: white;
-} */
-.form-header {
+.form-content {
+  padding: 1em;
+  border-radius: 2%;
   background-color: #ffca00;
-}
+  background-size: 1em 1em;
+  background-repeat: no-repeat;
+  box-shadow: 5px 5px gray;
+} 
+/* .form-header {
+  border-radius: 3%;
+  background-color: #ffca00;
+} */
 </style>
 
 
