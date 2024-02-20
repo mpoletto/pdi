@@ -5,11 +5,8 @@ use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\TipoProdutoController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ApiController;
-use App\Http\Resources\UserCollection;
 use App\Http\Resources\ClienteCollection;
-use App\Models\User;
 use App\Models\Cliente;
-use App\Models\Pedido;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,4 +35,6 @@ Route::post('/produto', [ProdutoController::class, 'store']);
 Route::post('/tipo-produto', [TipoProdutoController::class, 'store']);
 Route::get('/tipo-produto', [TipoProdutoController::class, 'index']);
 Route::post('/pedido', [PedidoController::class, 'store']);
-Route::get('/pedido')
+Route::patch('/pedido', [PedidoController::class, 'update']);
+Route::delete('/pedido', [PedidoController::class, 'destroy']);
+Route::get('/pedido/{id_cliente?}/{codigo_produto?}/{codigo_tipo_produto?}/{user_session_id?}', [PedidoController::class, 'index']);

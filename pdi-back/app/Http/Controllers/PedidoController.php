@@ -6,23 +6,21 @@ use App\Models\Pedido;
 use Illuminate\Http\Request;
 use App\Http\Requests\StorePedidoRequest;
 use App\Http\Resources\PedidoResource;
+use App\Models\Cliente;
+use Illuminate\Mail\Mailables\Address;
+use Illuminate\Mail\Mailables\Envelope;
+use App\Mail\SendPedido;
+use Illuminate\Support\Facades\Mail;
 
 class PedidoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        $result = (new Pedido)->getPedido($request);
+        return $result;
     }
 
     /**
@@ -32,7 +30,16 @@ class PedidoController extends Controller
     {
         $data = $request->all();
         $pedido = Pedido::create($data);
+        $cliente = (new Cliente)->getEmail($request->id_cliente);
+        $this->send($cliente);
         return new PedidoResource($pedido);
+    }
+
+    public function send($request): void
+    {
+        $data = (array) $request;
+        $data['message'] = 'Pedido criado com sucesso.';
+        Mail::to($request->email)->send(new SendPedido($data));
     }
 
     /**
@@ -44,26 +51,40 @@ class PedidoController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Pedido $pedido)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Pedido $pedido)
+    public function update(StorePedidoRequest $request)
     {
-        //
+        $affected = (new Pedido)->updatePedido($request);
+        if ($affected > 0) {
+            return \response()->json([
+                'status' => 200,
+                'message' => $affected . ' rows udpated successfully',
+            ]);
+        } else {
+            return \response()->json([
+                'status' => 304,
+                'message' => 'nothing updated',
+            ]);
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Pedido $pedido)
+    public function destroy(StorePedidoRequest $request)
     {
-        //
+        $affected = (new Pedido)->deletePedido($request);
+        if ($affected > 0) {
+            return \response()->json([
+                'status' => 200,
+                'message' => $affected . ' rows deleted successfully with soft delete',
+            ]);
+        } else {
+            return \response()->json([
+                'status' => 204,
+                'message' => 'nothing deleted',
+            ]);
+        }
     }
 }

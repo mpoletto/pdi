@@ -38,4 +38,9 @@ class Cliente extends Model
     {
         return DB::table($this->table)->select('id')->offset(1)->limit(1)->get();
     }
+
+    public function getEmail($id_cliente)
+    {
+        return DB::table($this->table)->select('nome', 'email')->where('id', $id_cliente)->get()->first();
+    }
 }
